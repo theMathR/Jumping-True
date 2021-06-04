@@ -65,7 +65,7 @@ with open(filename) as program_file:
 			if truth_line != -1:
 				line_num = truth_line
 				word_num = -1
-		elif word == "jump":
+		elif word == "jump" or word == "otjump":
 			word_num += 1
 			word = program[line_num][word_num].lower()
 			old_line_num = line_num
@@ -113,7 +113,7 @@ with open(filename) as program_file:
 								mark_word_num = 0
 								mark_line_num += 1
 						if not found: break
-			program[old_line_num][word_num-1] = "usedjump"
+			if word == "otjump" : program[old_line_num][word_num-1] = "usedjump"
 			word_num = -1
 		elif word == "input":
 			word_num += 1
